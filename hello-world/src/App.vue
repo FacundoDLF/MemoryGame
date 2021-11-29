@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="CLICK ME"/>
+    <MemoryGame msg="CLICK ME!"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MemoryGame from './components/MemoryGame.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MemoryGame
   }
 }
 </script>
