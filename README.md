@@ -1,24 +1,12 @@
-# hello-world
+# Memory Game
 
-## Project setup
+## GitHub Pages
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
+https://facundodlf.github.io/MemoryGame/
 ```
 
-### Compiles and minifies for production
+## App running at:
 ```
-yarn build
+  - Local:   http://localhost:8080/
+  - Network: http://192.168.100.8:8080/
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
