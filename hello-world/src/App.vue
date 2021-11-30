@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MemoryGame msg="CLICK ME!"/>
+    <MemoryGame msg="CLICK ME"/>
   </div>
 </template>
 
@@ -10,8 +10,8 @@ import MemoryGame from './components/MemoryGame.vue'
 export default {
   name: 'App',
   components: {
-    MemoryGame
-  }
+    MemoryGame,
+  },
 }
 </script>
 

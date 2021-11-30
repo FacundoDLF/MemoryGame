@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button class="counter" @click="count = count + 1">
+    <button class="counter" @click="incrementCount">
       <h1>{{ msg }}</h1>
     </button>
     <h1 class="count">{{ count }}</h1>
-    <button class="reset" @click="count = count * 0">
+    <button class="reset" @click="incrementCountByCount">
       <h4>Reset</h4>
     </button>
   </div>
@@ -16,9 +16,23 @@ export default {
   props: {
     msg: String,
   },
-  data: () => ({
-    count: 0,
-  })
+  computed: {
+    count() {
+      return this.$store.state.count;
+    },
+  },
+  
+  methods: {
+    incrementCount() {
+      this.$store.commit('setCount',   this.count +1);
+    },
+    incrementCountByCount() {
+      this.$store.commit('setCount', this.count * this.count);
+    },
+    resetCount() {
+      this.$store.commit('setCount', 0);
+    }
+  }
 }
 
 </script>
