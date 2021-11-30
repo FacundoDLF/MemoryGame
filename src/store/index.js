@@ -7,12 +7,15 @@ Vue.use(VueRouter)
 
 const Store = new Vuex.Store({
     state: {
-      userName: '',
+      player: '',
       userPass: '',
       score: Number,
 
     },
     mutations: {
+      setPlayer(state, value) {
+        return state.player = value
+      }
     }
   })
 

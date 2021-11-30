@@ -5,11 +5,21 @@
       <router-link to="/profile">Profile</router-link> | 
       <router-link to="/userScoreList">Scores</router-link>
     </div>
-    <router-view/>
+    <div>
+      <p>ACA IBAN LAS CARTAS</p>
+      <CardLayout />
+    </div>
   </div>
 </template>
 <script>
+import CardLayout from '../components/CardLayout.vue';
 
+export default {
+  name: 'CardLayout',
+  components: {
+    CardLayout,
+  },
+}
 </script>
 <style scoped>
 

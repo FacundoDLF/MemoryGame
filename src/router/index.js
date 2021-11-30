@@ -2,9 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
 import Home from '../views/Home.vue';
-import Profile from '../components/Profile.vue';
-import Canvas from '../components/Canvas.vue';
-import Scores from '../components/userScoreList.vue';
+import Profile from '../views/Profile.vue';
+import Scores from '../views/userScoreList.vue';
+import Canvas from '../components/Canvas';
+
 
 Vue.use(VueRouter)
 
@@ -25,7 +26,7 @@ const routes = [
     component: Profile
   },
   {
-    path: '/game',
+    path: '/Canvas',
     name: 'Canvas',
     component: Canvas
   },

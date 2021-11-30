@@ -2,7 +2,7 @@
   <div>
     <header id="header" class="header">
         <div id="iso-logo" class="iso-logo">
-            <span>Wellcome {{ Player }} to Monkey MemoryGame</span>
+            <span>Wellcome {{ player }} to Monkey MemoryGame</span>
         </div>
     </header>
     <section id="main" class="main">
@@ -11,7 +11,7 @@
                 <div class="row">
                   <fieldset class="fill-in">
                       <label id="get-name" class="label-form" for="GET-name" >Player </label>
-                      <input id="inputName" class="input-form" v-model="Player" value="Player">
+                      <input id="inputName" class="input-form" v-model="player" value="player">
                       <span id="errorName" class="error-span"></span>
                   </fieldset>
 
@@ -36,19 +36,23 @@ export default {
 
   props: {
     msg: String,
-    Player: String,
   },
 
   computed: {
-    count() {
-      return this.$store.state.count;
-    },
+    player: {
+      get() {
+        return this.$store.state.player;
+      },
+      set(value) {
+        return this.$store.commit("setPlayer", value)
+      },
+    }
   },
   
   methods: {
     handleStart() {
       console.log('handleStar:');
-      this.$router.push('/game');
+      this.$router.push('/Canvas');
 
     }
   }
