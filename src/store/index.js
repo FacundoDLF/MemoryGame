@@ -7,17 +7,12 @@ Vue.use(VueRouter)
 
 const Store = new Vuex.Store({
     state: {
-      count: 0,
       userName: '',
       userPass: '',
       score: Number,
-      date: Date,
 
     },
     mutations: {
-        setCount(state, value) {
-            state.count = value
-        }
     }
   })
 

@@ -20,7 +20,7 @@
                       <input id="inputPass" class="input-form" type="password" name="pass">
                       <span id="errorPass" class="error-span"></span>
                   </fieldset>
-                  <button id="submit" class="submit" type="submit">
+                  <button id="submit" class="submit" type="submit" @click="handleStart">
                     START
                   </button>
                 </div>
@@ -46,14 +46,10 @@ export default {
   },
   
   methods: {
-    incrementCount() {
-      this.$store.commit('setCount',   this.count +1);
-    },
-    incrementCountByCount() {
-      this.$store.commit('setCount', 0);
-    },
-    resetCount() {
-      this.$store.commit('setCount', this.count * 0);
+    handleStart() {
+      console.log('handleStar:');
+      this.$router.push('/game');
+
     }
   }
 }

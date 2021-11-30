@@ -2,8 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/Login">Login</router-link> | 
-      <router-link to="/Profile">Profile</router-link>
+      <router-link to="/Login">Login</router-link>
     </div>
     <router-view/>
   </div>
@@ -20,6 +19,8 @@ export default {
 
 <style>
 #app {
+  justify-content: center;
+  align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,6 +38,6 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #b94242;
 }
 </style>
