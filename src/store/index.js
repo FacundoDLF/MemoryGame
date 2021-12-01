@@ -16,7 +16,7 @@ const Store = new Vuex.Store({
     mutations: {
       setPlayer(state, value) {
         return state.player = value
-      }
+      },
     }
   })
 
