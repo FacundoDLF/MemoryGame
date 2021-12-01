@@ -10,6 +10,7 @@ const Store = new Vuex.Store({
       player: '',
       userPass: '',
       score: Number,
+      showCard: false,
 
     },
     mutations: {
