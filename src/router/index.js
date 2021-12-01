@@ -3,8 +3,8 @@ import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
 import Home from '../views/Home.vue';
 import Profile from '../views/Profile.vue';
-import Scores from '../views/userScoreList.vue';
-import Canvas from '../components/Canvas';
+import Scores from '../views/Scores.vue';
+import Game from '../views/Game';
 
 
 Vue.use(VueRouter)
@@ -26,12 +26,12 @@ const routes = [
     component: Profile
   },
   {
-    path: '/Canvas',
-    name: 'Canvas',
-    component: Canvas
+    path: '/Game',
+    name: 'Game',
+    component: Game
   },
   {
-    path: '/userScoreList',
+    path: '/Scores',
     name: 'Scores',
     component: Scores
   },

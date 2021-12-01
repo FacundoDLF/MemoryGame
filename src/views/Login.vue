@@ -51,8 +51,7 @@ export default {
   
   methods: {
     handleStart() {
-      console.log('handleStar:');
-      this.$router.push('/Canvas');
+      this.$router.push('/Game');
 
     }
   }
