@@ -5,6 +5,24 @@
 </template>
 
 <script>
+// import reverseCard from '../assets/img/reverseCard.png';
+// import { CARDS } from '../router/cards';
+import CARD_1 from '../assets/img/aladinMonkey.png';
+import CARD_2 from '../assets/img/athenianSmokingMonkey.png';
+import CARD_3 from '../assets/img/blueBandanaMonkey.png';
+import CARD_4 from '../assets/img/blueMarineMonkey.png';
+import CARD_5 from '../assets/img/coinEyesMonkey.png';
+import CARD_6 from '../assets/img/highEyesMonkey.png';
+import CARD_7 from '../assets/img/highHolyMonkey.png';
+import CARD_8 from '../assets/img/jailSmokingMonkey.png';
+import CARD_9 from '../assets/img/karateMonkey.png';
+import CARD_10 from '../assets/img/marineHighEyesMonkey.png';
+import CARD_11 from '../assets/img/marineMonkey.png';
+import CARD_12 from '../assets/img/whiteMarineMonkey.png';
+import CARD_13 from '../assets/img/athenianRobotMonkey.png';
+import CARD_14 from '../assets/img/karate3DMonkey.png';
+import CARD_15 from '../assets/img/smokingRobotMonkey.png';
+import CARD_16 from '../assets/img/sunglassesRobotMonkey.png';
 
 export default {
     name: 'Game',
@@ -14,49 +32,97 @@ export default {
         cards: [
             {
                 id: 1,
-                src: "https://lh3.googleusercontent.com/ULkbT3GMA9SexiN3hcY-mjEIAAzV78qO5bJV9BSE-M7eWvmotrj8Ds6nHdeNb1gqzGMmu3f4G9UwZpgf-eazI3B569SYxdNG23pZiQ=s0",
+                src: CARD_1,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 2,
-                src: "https://lh3.googleusercontent.com/o3uiULfN4HD_Kxl1MjxiMVwsRLReMe4DPo3slBFnJJBVIy7cE8_XF49fXc_tGZrf6oQtvxFEedSp3PwnkKyI4kYudGmtv6zRnqNovg=s0",
+                src: CARD_2,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 3,
-                src: "https://lh3.googleusercontent.com/ULkbT3GMA9SexiN3hcY-mjEIAAzV78qO5bJV9BSE-M7eWvmotrj8Ds6nHdeNb1gqzGMmu3f4G9UwZpgf-eazI3B569SYxdNG23pZiQ=s0",
+                src: CARD_3,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 4,
-                src: "https://lh3.googleusercontent.com/o3uiULfN4HD_Kxl1MjxiMVwsRLReMe4DPo3slBFnJJBVIy7cE8_XF49fXc_tGZrf6oQtvxFEedSp3PwnkKyI4kYudGmtv6zRnqNovg=s0",
+                src: CARD_4,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 5,
-                src: "https://lh3.googleusercontent.com/ULkbT3GMA9SexiN3hcY-mjEIAAzV78qO5bJV9BSE-M7eWvmotrj8Ds6nHdeNb1gqzGMmu3f4G9UwZpgf-eazI3B569SYxdNG23pZiQ=s0",
+                src: CARD_5,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 6,
-                src: "https://lh3.googleusercontent.com/o3uiULfN4HD_Kxl1MjxiMVwsRLReMe4DPo3slBFnJJBVIy7cE8_XF49fXc_tGZrf6oQtvxFEedSp3PwnkKyI4kYudGmtv6zRnqNovg=s0",
+                src: CARD_6,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 7,
-                src: "https://lh3.googleusercontent.com/ULkbT3GMA9SexiN3hcY-mjEIAAzV78qO5bJV9BSE-M7eWvmotrj8Ds6nHdeNb1gqzGMmu3f4G9UwZpgf-eazI3B569SYxdNG23pZiQ=s0",
+                src: CARD_7,
                 alt: "Monkey Card",
                 isReversed: false
             },
             {
                 id: 8,
-                src: "https://lh3.googleusercontent.com/o3uiULfN4HD_Kxl1MjxiMVwsRLReMe4DPo3slBFnJJBVIy7cE8_XF49fXc_tGZrf6oQtvxFEedSp3PwnkKyI4kYudGmtv6zRnqNovg=s0",
+                src: CARD_8,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 9,
+                src: CARD_9,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 10,
+                src: CARD_10,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 11,
+                src: CARD_11,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 12,
+                src: CARD_12,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 13,
+                src: CARD_13,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 14,
+                src: CARD_14,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 15,
+                src: CARD_15,
+                alt: "Monkey Card",
+                isReversed: false
+            },
+            {
+                id: 16,
+                src: CARD_16,
                 alt: "Monkey Card",
                 isReversed: false
             },
@@ -78,7 +144,7 @@ export default {
 
 <style scoped>
 .card {
-  width: 150px;
+  width: 152px;
   height: 175px;
   margin: 2px;
   cursor: pointer;

@@ -17,7 +17,7 @@ import CARD_15 from '../assets/img/smokingRobotMonkey.png';
 import CARD_16 from '../assets/img/sunglassesRobotMonkey.png';
 import CARD_17 from '../assets/img/smokingSunglassesMonkey.png';
 
-export default {
+export const CARDS = {
     [REVERSECARD]: 'REVERSECARD',
     [CARD_1]: 'CARD_1',
     [CARD_2]: 'CARD_2',
