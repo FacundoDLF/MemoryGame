@@ -5,9 +5,10 @@
       v-for="card in cards"
       :key="card.id"
       @click="showCard(card)"
-      :disabled="card.isBlocked"
+      :disabled="card.isBlocked || isGameStopped"
     >
       <img
+        class="temp-card"
         :src="
           card.isReversed
             ? card.src
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 // import reverseCard from '../assets/img/reverseCard.png';
 // import { CARDS } from '../router/cards';
 import CARD_1 from "../assets/img/aladinMonkey.png";
@@ -43,8 +45,6 @@ export default {
   name: "Game",
   data() {
     return {
-      index: 0,
-      match: [{}],
       cards: [
         {
           id: 1,
@@ -272,26 +272,51 @@ export default {
         },
       ],
       reversedMatch: null,
+      isGameStopped: false,
     };
   },
   methods: {
-    blockCouple(clickedCard) {
-      this.cards = this.cards.map((c) => {
-        if (c.id === clickedCard.id || c.id === this.reversedMatch.id) {
-          return { ...c, isBlocked: true };
-        }
-      });
+    blockCouple(clickedCard, index) {
+      const indexOfRM = this.cards.findIndex(
+        (card) => card.id === this.reversedMatch.id
+      );
+        Vue.set(this.cards, index, { ...clickedCard, isBlocked: true });
+        Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isBlocked: true });
+        this.reversedMatch = null;
+    },
+    showAndHide(clickedCard, index) {
+      const indexOfRM = this.cards.findIndex(
+        (card) => card.id === this.reversedMatch.id
+      );
+      this.isGameStopped = true;
+      setTimeout(() => {
+        Vue.set(this.cards, index, { ...clickedCard, isReversed: false });
+        Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isReversed: false });
+        this.isGameStopped = false;
+      }, 2000);
     },
     showCard(clickedCard) {
-      this.cards = this.cards.map((card) => {
-        if (card.id === clickedCard.id) {
-          // Ver si la carta ya esta dada vuelta
-          // Si: La escondo
-          // Sino: Si ya hay una carta dada vuelta diferente
-          //      Si: Ver si coinciden                             si: Las bloqueo (rever a null)    sino: (Las muestro a las dos por unos segundos)Las escondo las dos (reversed a null)
-          //      No: La guardo como reversedMAtch
-        } else return card;
-      });
+      const indexOfCard = this.cards.findIndex(
+        (card) => card.id === clickedCard.id
+      );
+      // Ver si la carta ya esta dada vuelta
+      if (clickedCard.isReversed) {
+        // Si: La escondo
+        this.reversedMatch = null;
+        Vue.set(this.cards, indexOfCard, { ...clickedCard, isReversed: false });
+        // Sino: Si ya hay otra carta dada vuelta
+      } else
+        Vue.set(this.cards, indexOfCard, { ...clickedCard, isReversed: true });
+      if (this.reversedMatch) {
+        // Si: Ver si coincide
+        if (clickedCard.src === this.reversedMatch.src) {
+          this.blockCouple(clickedCard, indexOfCard);
+        } else {
+          this.showAndHide(clickedCard, indexOfCard);
+        }
+      } else {
+        this.reversedMatch = clickedCard;
+      }
     },
   },
 };
@@ -302,6 +327,14 @@ export default {
   width: 150px;
   height: 175px;
   margin: 2px;
+  border-style: none;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.temp-card {
+  width: 220px;
+  height: 272px;
 }
 
 .card:hover {
