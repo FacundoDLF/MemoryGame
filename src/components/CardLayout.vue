@@ -55,7 +55,7 @@ export default {
         },
         {
           id: 2,
-          src: CARD_2,
+          src: CARD_1,
           alt: "Monkey Card",
           isReversed: false,
           isBlocked: false,
@@ -160,7 +160,7 @@ export default {
         },
         {
           id: 17,
-          src: CARD_1,
+          src: CARD_2,
           alt: "Monkey Card",
           isReversed: false,
           isBlocked: false,
@@ -282,7 +282,7 @@ export default {
       );
         Vue.set(this.cards, index, { ...clickedCard, isBlocked: true });
         Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isBlocked: true });
-        this.reversedMatch = null;
+        // this.reversedMatch = null; --> No lo se Rick ...
     },
     showAndHide(clickedCard, index) {
       const indexOfRM = this.cards.findIndex(
@@ -293,14 +293,16 @@ export default {
         Vue.set(this.cards, index, { ...clickedCard, isReversed: false });
         Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isReversed: false });
         this.isGameStopped = false;
-      }, 2000);
+        this.reversedMatch = null;
+      }
+      ,1000);
     },
     showCard(clickedCard) {
       const indexOfCard = this.cards.findIndex(
         (card) => card.id === clickedCard.id
       );
       // Ver si la carta ya esta dada vuelta
-      if (clickedCard.isReversed) {
+      if (clickedCard.isReversed && clickedCard.id !== this.reversedMatch.id) {
         // Si: La escondo
         this.reversedMatch = null;
         Vue.set(this.cards, indexOfCard, { ...clickedCard, isReversed: false });
