@@ -8,12 +8,12 @@
         <button class="btn-lvl" @click="selectedLevel(16)">x8</button>
         <button class="btn-lvl" @click="selectedLevel(12)">x12</button>
         <button class="btn-lvl" @click="selectedLevel(32)">x16</button>
-        <button class="btn-lvl" @click="resetGame" >Reset</button>
+        <button class="btn-rst" @click="resetGame" >Reset</button>
     </div>
     <div class="deck">
       <button
         class="card"
-        v-for="card in levelGame"
+        v-for="card in cardsInLevel"
         :key="card.id"
         @click="showCard(card)"
         :disabled="card.isBlocked || isGameStopped"
@@ -25,18 +25,21 @@
               ? card.src
               : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGOKNdUpoBWN860IXpp9GCa1yPzd5C9xFPmnGenDEAAo44uVENo857N3gan_jqPFxq4tc&usqp=CAU'
           "
-          alt="Monkey MemoryCards"
+          alt="Monkey MemorycardsInLevel"
         />
       </button>
     </div>
-    <h2 v-if="!levelGame">Please, choose the difficulty to start the game.</h2>
+    <h2 v-if="!cardsInLevel">Please, choose the difficulty to start the game.</h2>
+    <div v-if="finishGame">
+      <h1>CONGRATS!! YOU WIN !!</h1>
+    </div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 // import reverseCard from '../assets/img/reverseCard.png';
-// import { CARDS } from '../router/cards';
+// import { cardsInLevel } from '../router/cardsInLevel';
 import CARD_1 from "../assets/img/aladinMonkey.png";
 import CARD_2 from "../assets/img/athenianSmokingMonkey.png";
 import CARD_3 from "../assets/img/blueBandanaMonkey.png";
@@ -289,50 +292,60 @@ export default {
       ],
       reversedMatch: null,
       isGameStopped: false,
-      levelGame: null,
+      cardsInLevel: null,
+      finishGame: false,
     };
   },
   methods: {
+    winGame() {
+      const win = this.cardsInLevel.findIndex(
+        (card) => card.isReversed = false
+      );
+      if(win) {
+        this.finishGame = false;
+      } else this.finishGame = true;
+    },
     resetGame() {
-      this.levelGame = null;
+      this.cardsInLevel = null;
+      this.reversedMatch = null;
     },
     selectedLevel(value) {
-      this.levelGame = this.cards.slice(0, value);
+      this.cardsInLevel = this.cards.slice(0, value);
     },
     blockCouple(clickedCard, index) {
-      const indexOfRM = this.cards.findIndex(
+      const indexOfRM = this.cardsInLevel.findIndex(
         (card) => card.id === this.reversedMatch.id
       );
-        Vue.set(this.cards, index, { ...clickedCard, isBlocked: true });
-        Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isBlocked: true });
-        Vue.set(this.cards, index, { ...clickedCard, isReversed: true });
-        Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isReversed: true });
+        Vue.set(this.cardsInLevel, index, { ...clickedCard, isBlocked: true });
+        Vue.set(this.cardsInLevel, indexOfRM, { ...this.reversedMatch, isBlocked: true });
+        Vue.set(this.cardsInLevel, index, { ...clickedCard, isReversed: true });
+        Vue.set(this.cardsInLevel, indexOfRM, { ...this.reversedMatch, isReversed: true });
     },
     showAndHide(clickedCard, index) {
-      const indexOfRM = this.cards.findIndex(
+      const indexOfRM = this.cardsInLevel.findIndex(
         (card) => card.id === this.reversedMatch.id
       );
       this.isGameStopped = true;
       setTimeout(() => {
-        Vue.set(this.cards, index, { ...clickedCard, isReversed: false });
-        Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isReversed: false });
+        Vue.set(this.cardsInLevel, index, { ...clickedCard, isReversed: false });
+        Vue.set(this.cardsInLevel, indexOfRM, { ...this.reversedMatch, isReversed: false });
         this.isGameStopped = false;
         this.reversedMatch = null;
       }
       ,1000);
     },
     showCard(clickedCard) {
-      const indexOfCard = this.cards.findIndex(
+      const indexOfCard = this.cardsInLevel.findIndex(
         (card) => card.id === clickedCard.id
       );
       // Ver si la carta ya esta dada vuelta
       if (clickedCard.isReversed && clickedCard.id !== this.reversedMatch.id) {
         // Si: La escondo
         this.reversedMatch = null;
-        Vue.set(this.cards, indexOfCard, { ...clickedCard, isReversed: false });
+        Vue.set(this.cardsInLevel, indexOfCard, { ...clickedCard, isReversed: false });
         // Sino: Si ya hay otra carta dada vuelta
       } else
-        Vue.set(this.cards, indexOfCard, { ...clickedCard, isReversed: true });
+        Vue.set(this.cardsInLevel, indexOfCard, { ...clickedCard, isReversed: true });
       if (this.reversedMatch) {
         // Si: Ver si coincide
         if (clickedCard.src === this.reversedMatch.src) {
@@ -398,7 +411,29 @@ export default {
 .btn-lvl:hover {
   background-color: rgb(255, 34, 34);
   border-color: rgb(156, 5, 5);
-  width: 60px;
-  height: 45px;
+  color: rgb(0, 0, 0);
+  font-style: oblique;
+  font-weight: bolder;
+  font-size: 20px;
+
+}
+
+.btn-rst {
+  display: flex;
+  width: 50px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  background-color: transparent;  
+  border-color: transparent;
+}
+
+.btn-rst:hover {
+  color: rgb(255, 0, 0);
+  font-style: oblique;
+  font-weight: bolder;
+  font-size: 20px;
 }
 </style>
