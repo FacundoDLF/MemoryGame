@@ -1,30 +1,35 @@
 <template>
   <div id="app">
-    <div>
-      <select name="levels" id="levels">
-        <option value="x4">Level x 4</option>
-        <option value="x8">Level x 8</option>
-        <option value="x16">Level x 12</option>
-        <option value="x32">Level x 16</option>
-      </select>
+    <div class="nav-lvl">
+      <div class="label-lvl"> 
+        <h4>Level: </h4>
+      </div>
+        <button class="btn-lvl" @click="selectedLevel(8)">x4</button>
+        <button class="btn-lvl" @click="selectedLevel(16)">x8</button>
+        <button class="btn-lvl" @click="selectedLevel(12)">x12</button>
+        <button class="btn-lvl" @click="selectedLevel(32)">x16</button>
+        <button class="btn-lvl" @click="resetGame" >Reset</button>
     </div>
-    <button
-      class="card"
-      v-for="card in cards"
-      :key="card.id"
-      @click="showCard(card)"
-      :disabled="card.isBlocked || isGameStopped"
-    >
-      <img
-        class="temp-card"
-        :src="
-          card.isReversed
-            ? card.src
-            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGOKNdUpoBWN860IXpp9GCa1yPzd5C9xFPmnGenDEAAo44uVENo857N3gan_jqPFxq4tc&usqp=CAU'
-        "
-        alt="Monkey MemoryCards"
-      />
-    </button>
+    <div class="deck">
+      <button
+        class="card"
+        v-for="card in levelGame"
+        :key="card.id"
+        @click="showCard(card)"
+        :disabled="card.isBlocked || isGameStopped"
+      >
+        <img
+          class="temp-card"
+          :src="
+            card.isReversed
+              ? card.src
+              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGOKNdUpoBWN860IXpp9GCa1yPzd5C9xFPmnGenDEAAo44uVENo857N3gan_jqPFxq4tc&usqp=CAU'
+          "
+          alt="Monkey MemoryCards"
+        />
+      </button>
+    </div>
+    <h2 v-if="!levelGame">Please, choose the difficulty to start the game.</h2>
   </div>
 </template>
 
@@ -53,8 +58,8 @@ import CARD_15 from "../assets/img/smokingRobotMonkey.png";
 import CARD_16 from "../assets/img/sunglassesRobotMonkey.png";
 
 export default {
-  name: "Game",
-  data() {
+  name: "CardLayout",
+    data() {
     return {
       cards: [
         {
@@ -284,9 +289,16 @@ export default {
       ],
       reversedMatch: null,
       isGameStopped: false,
+      levelGame: null,
     };
   },
   methods: {
+    resetGame() {
+      this.levelGame = null;
+    },
+    selectedLevel(value) {
+      this.levelGame = this.cards.slice(0, value);
+    },
     blockCouple(clickedCard, index) {
       const indexOfRM = this.cards.findIndex(
         (card) => card.id === this.reversedMatch.id
@@ -295,7 +307,6 @@ export default {
         Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isBlocked: true });
         Vue.set(this.cards, index, { ...clickedCard, isReversed: true });
         Vue.set(this.cards, indexOfRM, { ...this.reversedMatch, isReversed: true });
-        // this.reversedMatch = null; // No lo se Rick ...
     },
     showAndHide(clickedCard, index) {
       const indexOfRM = this.cards.findIndex(
@@ -339,21 +350,55 @@ export default {
 </script>
 
 <style scoped>
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
   width: 150px;
   height: 175px;
   margin: 2px;
   border-style: none;
-  background-color: white;
+  background-color: transparent;
   border-radius: 4px;
 }
 
 .temp-card {
-  width: 220px;
-  height: 272px;
+  width: 150px;
+  height: 175px;
 }
 
 .card:hover {
   filter: brightness(1.2);
+}
+
+.nav-lvl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.label-lvl{
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+}
+.btn-lvl {
+  display: flex;
+  width: 50px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  background-color: transparent;  
+  border-color: transparent;
+}
+
+.btn-lvl:hover {
+  background-color: rgb(255, 34, 34);
+  border-color: rgb(156, 5, 5);
+  width: 60px;
+  height: 45px;
 }
 </style>
