@@ -94,9 +94,6 @@ export default {
           isBlocked: false,
         },
         {
-          id: 0,
-        },
-        {
           id: 5,
           src: CARD_1,
           alt: "Monkey Card",
