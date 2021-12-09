@@ -10,6 +10,9 @@
         <button class="btn-lvl" @click="selectedLevel(32)">x16</button>
         <button class="btn-rst" @click="resetGame" >Reset</button>
     </div>
+    <div v-if="finishGame">
+      <h1>CONGRATS!! YOU WIN !!</h1>
+    </div>
     <div class="deck">
       <button
         class="card"
@@ -30,9 +33,6 @@
       </button>
     </div>
     <h2 v-if="!cardsInLevel">Please, choose the difficulty to start the game.</h2>
-    <div v-if="finishGame">
-      <h1>CONGRATS!! YOU WIN !!</h1>
-    </div>
   </div>
 </template>
 
@@ -92,6 +92,9 @@ export default {
           alt: "Monkey Card",
           isReversed: false,
           isBlocked: false,
+        },
+        {
+          id: 0,
         },
         {
           id: 5,
@@ -298,12 +301,14 @@ export default {
   },
   methods: {
     winGame() {
-      const win = this.cardsInLevel.findIndex(
-        (card) => card.isReversed = false
-      );
-      if(win) {
-        this.finishGame = false;
-      } else this.finishGame = true;
+      var winGame = true;
+      Object.keys(this.cardsInLevel).some( isReversed => {
+          if (!this.cardsInLevel[isReversed]) {
+              this.finishGame = false;
+              return false;
+          }
+      })
+      return winGame;
     },
     resetGame() {
       this.cardsInLevel = null;
