@@ -6,7 +6,7 @@
       </div>
         <button class="btn-lvl" @click="selectedLevel(8)">x4</button>
         <button class="btn-lvl" @click="selectedLevel(16)">x8</button>
-        <button class="btn-lvl" @click="selectedLevel(12)">x12</button>
+        <button class="btn-lvl" @click="selectedLevel(24)">x12</button>
         <button class="btn-lvl" @click="selectedLevel(32)">x16</button>
         <button class="btn-rst" @click="resetGame" >Reset</button>
     </div>
