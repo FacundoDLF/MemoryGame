@@ -12,9 +12,16 @@
 </div>
 </template>
 <script>
+import { mapGetters } from "../../store/getters.js";
 
 export default {
-    name: "asideNavBar",
+  name: "asideNavBar",
+  
+  computed: {
+    ...mapGetters([
+      'choseLevel',
+    ])
+  },
 }
 </script>
 

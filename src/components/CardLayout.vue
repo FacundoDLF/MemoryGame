@@ -28,11 +28,11 @@
 
 <script>
 import Vue from "vue";
+// import { mapState } from "../store/index.js";
 // import { mapGetters } from "../store/getters.js";
 
 export default {
-  // components: {
-  // },
+
   name: "CardLayout",
     data() {
     return {
@@ -42,9 +42,15 @@ export default {
       finishGame: false,
     };
   },
+  mounted() {
+    console.log('choseLevel: ', this.choseLevel);
+  },
   // computed: {
   //   ...mapGetters([
   //     'choseLevel',
+  //   ]),
+  //   ...mapState([
+  //     'cards'
   //   ])
   // },
   methods: {

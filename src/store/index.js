@@ -239,13 +239,13 @@ const Store = new Vuex.Store({
           isBlocked: false,
         },
       ],
-      getters,
     },
     mutations: {
       setPlayer(state, value) {
         return state.player = value
       },
-    }
+    },
+    getter: getters,
   })
 
 export default Store
