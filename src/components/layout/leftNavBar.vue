@@ -1,10 +1,8 @@
 <template>
 <div class="leftNavBar">
   <div class="nav-lvl">
-    <div class="label-lvl">
-      <img class="logo" src="https://i.pinimg.com/originals/97/fd/05/97fd05e0cc5fc8f8204012448bc703ae.jpg" alt="Monkey Memory Game"> 
-      <h2>Level: </h2>
-    </div>
+    <img class="logo" src="https://i.pinimg.com/originals/97/fd/05/97fd05e0cc5fc8f8204012448bc703ae.jpg" alt="Monkey Memory Game"> 
+    <p class="label-lvl">Level:</p>
     <button class="btn-lvl" @click="choseLevel(8)">x4</button>
     <button class="btn-lvl" @click="choseLevel(16)">x8</button>
     <button class="btn-lvl" @click="choseLevel(24)">x12</button>
@@ -24,8 +22,13 @@ export default {
 
 .logo {
   display: flex;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  width: 70%;
+  height: 70%;
 }
 .nav-lvl {
   display: flex;
@@ -36,13 +39,9 @@ export default {
   color: black;
   font-weight: bold;
 }
-.label-lvl{
-  display: block;
-  font-family: 'Courier New', Courier, monospace;
-}
-.btn-lvl {
+.btn-lvl, .label-lvl {
   display: flex;
-  width: 50px;
+  width: 100%;
   height: 35px;
   justify-content: center;
   align-items: center;
@@ -64,7 +63,7 @@ export default {
 
 .btn-rst {
   display: flex;
-  width: 50px;
+  width: 50%;
   height: 35px;
   justify-content: center;
   align-items: center;

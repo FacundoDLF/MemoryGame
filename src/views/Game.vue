@@ -31,6 +31,8 @@ export default {
 <style scoped>
 .main-game {
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .nav {
@@ -60,7 +62,8 @@ a {
   align-items: center;
   width: 25%;
   border-style: groove;
-  border-bottom-right-radius: 0%;
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5% ;
 }
 
 </style>

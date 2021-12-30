@@ -13,21 +13,22 @@
 <script>
 import Header from "./components/layout/myHeader.vue";
 import Footer from "./components/layout/myFooter.vue";
-// import LeftNavBar from "./components/layout/leftNavBar.vue";
 
 
 export default {
   components: {
     Header,
     Footer,
-    // LeftNavBar,
   },
   name: 'App',
 }
 </script>
 
 <style>
-#app {
+#app, body {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -35,10 +36,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
 }
 
 #nav a {

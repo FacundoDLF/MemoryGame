@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="header">
         <div class="main">
         <div class="nav">
             <router-link class="nav-tab" to="/">Home</router-link> |
@@ -16,7 +16,10 @@ export default {
 </script>
 
 <style scoped>
-
+.header {
+    display: flex;
+    width: 100%;
+}
 .nav {
     display: flex;
     justify-content: right ;

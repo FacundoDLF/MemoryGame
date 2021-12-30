@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="footer">
         <h1>This is a my footer.</h1>
     </div>
 </template>
@@ -11,8 +11,14 @@ export default {
 
 
 <style scoped>
+.footer {
+    display: flex;
+    width: 100%;
+}
+
 h1 {
-    margin: 0 0 0 0;
+    width: 100%;
+    margin: 0px;
     background-color: black;
 }
 </style>
