@@ -1,6 +1,11 @@
 <template>
     <div id="app">
-        <h1>This is a my header.</h1>
+        <div class="main">
+        <div class="nav">
+            <router-link class="nav-tab" to="/">Home</router-link> |
+            <router-link class="nav-tab" to="/Login">Login</router-link>
+        </div>
+        </div>
     </div>
 </template>
 <script>
@@ -11,8 +16,19 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-    margin: 0 0 0 0 ;
+
+.nav {
+    display: flex;
+    justify-content: right ;
+    padding: 10px;
     background-color: black;
+}
+a {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.nav-tab:hover {
+    color: red;
 }
 </style>

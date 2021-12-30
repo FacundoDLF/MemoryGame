@@ -1,9 +1,6 @@
 <template>
 <div class="leftNavBar">
   <div class="nav-lvl">
-    <!-- <div class="logo">
-      <img src="https://i.pinimg.com/originals/97/fd/05/97fd05e0cc5fc8f8204012448bc703ae.jpg" alt="Monkey Memory Game">
-    </div> -->
     <div class="label-lvl">
       <img class="logo" src="https://i.pinimg.com/originals/97/fd/05/97fd05e0cc5fc8f8204012448bc703ae.jpg" alt="Monkey Memory Game"> 
       <h2>Level: </h2>
