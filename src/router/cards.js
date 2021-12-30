@@ -1,40 +1,20 @@
-import REVERSECARD from '../assets/img/reverseCard.png';
-import CARD_1 from '../assets/img/aladinMonkey.png';
-import CARD_2 from '../assets/img/athenianSmokingMonkey.png';
-import CARD_3 from '../assets/img/blueBandanaMonkey.png';
-import CARD_4 from '../assets/img/blueMarineMonkey.png';
-import CARD_5 from '../assets/img/coinEyesMonkey.png';
-import CARD_6 from '../assets/img/highEyesMonkey.png';
-import CARD_7 from '../assets/img/highHolyMonkey.png';
-import CARD_8 from '../assets/img/jailSmokingMonkey.png';
-import CARD_9 from '../assets/img/karateMonkey.png';
-import CARD_10 from '../assets/img/marineHighEyesMonkey.png';
-import CARD_11 from '../assets/img/marineMonkey.png';
-import CARD_12 from '../assets/img/whiteMarineMonkey.png';
-import CARD_13 from '../assets/img/athenianRobotMonkey.png';
-import CARD_14 from '../assets/img/karate3DMonkey.png';
-import CARD_15 from '../assets/img/smokingRobotMonkey.png';
-import CARD_16 from '../assets/img/sunglassesRobotMonkey.png';
-import CARD_17 from '../assets/img/smokingSunglassesMonkey.png';
-
 export const CARDS = {
-    [REVERSECARD]: 'REVERSECARD',
-    [CARD_1]: 'CARD_1',
-    [CARD_2]: 'CARD_2',
-    [CARD_3]: 'CARD_3',
-    [CARD_4]: 'CARD_4',
-    [CARD_5]: 'CARD_5',
-    [CARD_6]: 'CARD_6',
-    [CARD_7]: 'CARD_7',
-    [CARD_8]: 'CARD_8',
-    [CARD_9]: 'CARD_9',
-    [CARD_10]: 'CARD_10',
-    [CARD_11]: 'CARD_11',
-    [CARD_12]: 'CARD_12',
-    [CARD_13]: 'CARD_13',
-    [CARD_14]: 'CARD_14',
-    [CARD_15]: 'CARD_15',
-    [CARD_16]: 'CARD_16',
-    [CARD_17]: 'CARD_17',
-
+REVERSECARD: '../assets/img/reverseCard.png',
+CARD_1:'../assets/img/aladinMonkey.png',
+CARD_2:'../assets/img/athenianSmokingMonkey.png',
+CARD_3:'../assets/img/blueBandanaMonkey.png',
+CARD_4:'../assets/img/blueMarineMonkey.png',
+CARD_5:'../assets/img/coinEyesMonkey.png',
+CARD_6:'../assets/img/highEyesMonkey.png',
+CARD_7:'../assets/img/highHolyMonkey.png',
+CARD_8:'../assets/img/jailSmokingMonkey.png',
+CARD_9:'../assets/img/karateMonkey.png',
+CARD_10:'../assets/img/marineHighEyesMonkey.png',
+CARD_11:'../assets/img/marineMonkey.png',
+CARD_12:'../assets/img/whiteMarineMonkey.png',
+CARD_13:'../assets/img/athenianRobotMonkey.png',
+CARD_14:'../assets/img/karate3DMonkey.png',
+CARD_15:'../assets/img/smokingRobotMonkey.png',
+CARD_16:'../assets/img/sunglassesRobotMonkey.png',
+CARD_17:'../assets/img/smokingSunglassesMonkey.png',
 }

@@ -12,7 +12,7 @@
 </div>
 </template>
 <script>
-import { mapGetters } from "../../store/getters.js";
+import { mapGetters } from "vuex";
 
 export default {
   name: "asideNavBar",
@@ -20,7 +20,12 @@ export default {
   computed: {
     ...mapGetters([
       'choseLevel',
-    ])
+    ]),
+  },
+  methods: {
+    resetGame() {
+      this.$store.state.cardsInLevel;
+    }
   },
 }
 </script>

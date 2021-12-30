@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
-import VueRouter from 'vue-router'
-import { CARDS } from "../router/cards.js"
-import getters from "./getters.js"
+import VueRouter from 'vue-router';
+import { CARDS } from "../router/cards.js";
+import getters from "./getters.js";
 
 Vue.use(Vuex);
 Vue.use(VueRouter)
@@ -239,13 +239,20 @@ const Store = new Vuex.Store({
           isBlocked: false,
         },
       ],
+      cardsInLevel: [],
+      reversedMatch: null,
+      level: 0,
     },
     mutations: {
       setPlayer(state, value) {
         return state.player = value
       },
+      resetGame(state) {
+        state.cardsInLevel = null;
+        state.reversedMatch = null;
+      },
     },
-    getter: getters,
+    getters,
   })
 
 export default Store

@@ -1,6 +1,6 @@
 export default {
-    choseLevel(state, level) {
-        // this.cardsInLevel = state.cards.slice(0, level);
-        console.log('State y Level', { state, level });
+    choseLevel: (state) => (level) => {
+        console.log('state ,level: ', {state, level});
+        return state.cardsInLevel = state.cards.slice(0, level);
     },
 }

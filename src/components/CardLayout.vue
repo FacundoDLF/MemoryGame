@@ -22,14 +22,13 @@
         />
       </button>
     </div>
-    <h2 v-if="!cardsInLevel">Please, choose the difficulty to start the game.</h2>
+    <h2 v-if="!cardsInLevel.length">Please, choose the difficulty to start the game.</h2>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-// import { mapState } from "../store/index.js";
-// import { mapGetters } from "../store/getters.js";
+import { mapState, mapGetters } from "vuex";
 
 export default {
 
@@ -38,21 +37,18 @@ export default {
     return {
       reversedMatch: null,
       isGameStopped: false,
-      cardsInLevel: null,
       finishGame: false,
     };
   },
-  mounted() {
-    console.log('choseLevel: ', this.choseLevel);
+  computed: {
+    ...mapGetters([
+      'choseLevel',
+    ]),
+    ...mapState([
+      'cards',
+      'cardsInLevel'
+    ])
   },
-  // computed: {
-  //   ...mapGetters([
-  //     'choseLevel',
-  //   ]),
-  //   ...mapState([
-  //     'cards'
-  //   ])
-  // },
   methods: {
     winGame() {
       var winGame = true;
@@ -63,10 +59,6 @@ export default {
           }
       })
       return winGame;
-    },
-    resetGame() {
-      this.cardsInLevel = null;
-      this.reversedMatch = null;
     },
     blockCouple(clickedCard, index) {
       const indexOfRM = this.cardsInLevel.findIndex(
@@ -91,9 +83,11 @@ export default {
       ,1000);
     },
     showCard(clickedCard) {
+      console.log('clickedCard: ', clickedCard);
       const indexOfCard = this.cardsInLevel.findIndex(
         (card) => card.id === clickedCard.id
       );
+      console.log('indexOfCard: ', indexOfCard);
       // Ver si la carta ya esta dada vuelta
       if (clickedCard.isReversed && clickedCard.id !== this.reversedMatch.id) {
         // Si: La escondo
