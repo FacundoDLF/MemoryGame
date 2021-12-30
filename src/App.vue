@@ -27,6 +27,7 @@ export default {
 <style>
 #app, body {
   display: flex;
+  width: 100%;
   margin: 0;
   flex-direction: column;
   justify-content: center;
