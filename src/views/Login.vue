@@ -2,7 +2,7 @@
   <div>
     <header id="header" class="header">
         <div id="iso-logo" class="iso-logo">
-            <span>Wellcome {{ player }} to Monkey MemoryGame</span>
+            <span>Welcome {{ player+',' }} to Monkey MemoryGame</span>
         </div>
     </header>
     <section id="main" class="main">
@@ -16,7 +16,7 @@
                   </fieldset>
 
                   <fieldset class="fill-in">
-                      <label id="get-name" class="label-form" for="GET-pass">Password: </label>
+                      <label id="get-name" class="label-form" for="GET-pass">Password </label>
                       <input id="inputPass" class="input-form" type="password" name="pass">
                       <span id="errorPass" class="error-span"></span>
                   </fieldset>
