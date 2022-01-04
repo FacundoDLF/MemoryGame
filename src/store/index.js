@@ -1,7 +1,6 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
 import REVERSECARD from '../assets/img/reverseCard.png';
 import CARD_1 from '../assets/img/aladinMonkey.png';
 import CARD_2 from '../assets/img/athenianSmokingMonkey.png';

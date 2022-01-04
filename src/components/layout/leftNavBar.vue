@@ -12,7 +12,8 @@
 </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import Vue from "vue";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "asideNavBar",
@@ -21,10 +22,14 @@ export default {
     ...mapGetters([
       'choseLevel',
     ]),
+    ...mapState([
+      'cardsInLevel',
+      'reversedMatch',
+    ])
   },
   methods: {
     resetGame() {
-      this.$store.state.cardsInLevel;
+      Vue.set(this.cardsInLevel, {...this.cardsInLevel, cardsInLevel: null});
     }
   },
 }

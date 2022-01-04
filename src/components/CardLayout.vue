@@ -1,9 +1,8 @@
 <template>
-  <div id="app">
-    <div v-if="finishGame">
-      <h1>CONGRATS!! YOU WIN !!</h1>
-    </div>
+  <div class="cardLayout">
+    <h1 v-if="finishGame" >CONGRATS!! YOU WIN !!</h1>
     <div class="deck">
+      <h2 v-if="!cardsInLevel.length">Please, choose the difficulty to start the game.</h2>
       <button
         class="card"
         v-for="card in cardsInLevel"
@@ -22,7 +21,6 @@
         />
       </button>
     </div>
-    <h2 v-if="!cardsInLevel.length">Please, choose the difficulty to start the game.</h2>
   </div>
 </template>
 
@@ -85,7 +83,6 @@ export default {
       ,1000);
     },
     showCard(clickedCard) {
-      console.log('clickedCard: ', clickedCard);
       const indexOfCard = this.cardsInLevel.findIndex(
         (card) => card.id === clickedCard.id
       );
@@ -114,14 +111,22 @@ export default {
 </script>
 
 <style scoped>
+.cardLayout {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
 .deck {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 60%;
 }
 
 .card {
-  width: 150px;
+  width: 140px;
   height: 175px;
   margin: 2px;
   border-style: none;
@@ -130,7 +135,7 @@ export default {
 }
 
 .temp-card {
-  width: 150px;
+  width: 140px;
   height: 175px;
 }
 
