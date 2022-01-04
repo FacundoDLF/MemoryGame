@@ -32,6 +32,11 @@ export default {
 
 <style scoped>
 
+.leftNavBar {
+  position: sticky;
+  
+}
+
 .logo {
   display: flex;
   justify-content: center;

@@ -16,9 +16,9 @@
           :src="
             card.isReversed
               ? card.src
-              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGOKNdUpoBWN860IXpp9GCa1yPzd5C9xFPmnGenDEAAo44uVENo857N3gan_jqPFxq4tc&usqp=CAU'
+              : srcReverseCard.src
           "
-          alt="Monkey MemorycardsInLevel"
+          alt="Monkey MemoryGame"
         />
       </button>
     </div>
@@ -29,6 +29,7 @@
 <script>
 import Vue from "vue";
 import { mapState, mapGetters } from "vuex";
+
 
 export default {
 
@@ -46,7 +47,8 @@ export default {
     ]),
     ...mapState([
       'cards',
-      'cardsInLevel'
+      'cardsInLevel',
+      'srcReverseCard'
     ])
   },
   methods: {
@@ -87,7 +89,6 @@ export default {
       const indexOfCard = this.cardsInLevel.findIndex(
         (card) => card.id === clickedCard.id
       );
-      console.log('indexOfCard: ', indexOfCard);
       // Ver si la carta ya esta dada vuelta
       if (clickedCard.isReversed && clickedCard.id !== this.reversedMatch.id) {
         // Si: La escondo
