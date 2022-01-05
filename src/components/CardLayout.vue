@@ -1,6 +1,6 @@
 <template>
   <div class="cardLayout">
-    <h1 v-if="finishGame" >CONGRATS!! YOU WIN !!</h1>
+    <h1 v-if="winner" >CONGRATS!! YOU WIN !!</h1>
     <div class="deck">
       <h2 v-if="!cardsInLevel.length">Please, choose the difficulty to start the game.</h2>
       <button
@@ -36,7 +36,8 @@ export default {
     return {
       reversedMatch: null,
       isGameStopped: false,
-      finishGame: false,
+      finishGame: [],
+      winner: false
     };
   },
   computed: {
@@ -51,14 +52,11 @@ export default {
   },
   methods: {
     winGame() {
-      var winGame = true;
-      Object.keys(this.cardsInLevel).some( isReversed => {
-          if (!this.cardsInLevel[isReversed]) {
-              this.finishGame = false;
-              return false;
-          }
-      })
-      return winGame;
+      if (this.cardsInLevel.length === this.finishGame.length) {
+        return this.winner = true
+      }
+      console.log('finishGame: ', this.finishGame.length);
+      console.log('cardsInLevel: ', this.cardsInLevel);
     },
     blockCouple(clickedCard, index) {
       const indexOfRM = this.cardsInLevel.findIndex(
@@ -99,6 +97,8 @@ export default {
         if (clickedCard.src === this.reversedMatch.src) {
           this.blockCouple(clickedCard, indexOfCard);
           this.reversedMatch = null;
+          this.finishGame.length += 2;
+          this.winGame();
         } else {
           this.showAndHide(clickedCard, indexOfCard);
         }
