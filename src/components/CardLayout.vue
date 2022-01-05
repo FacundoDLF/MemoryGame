@@ -2,7 +2,7 @@
   <div class="cardLayout">
     <p class="win-msg" v-if="gameOver" >YOU WIN !!</p>
     <div class="deck">
-      <h2 v-if="!cardsInLevel.length">Please, choose the difficulty to start the game.</h2>
+      <h2 v-if="!cardsInLevel.length">Please, chose your LEVEL to start the game.</h2>
       <button
         class="card"
         v-for="card in cardsInLevel"

@@ -23,7 +23,7 @@ export default {
 .nav {
     display: flex;
     justify-content: right ;
-    padding: 10px;
+    padding: 3px;
     background-color: black;
 }
 a {

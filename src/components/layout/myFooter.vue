@@ -14,11 +14,13 @@ export default {
 .footer {
     display: flex;
     width: 100%;
+    height: 100%;
 }
 
 h1 {
     width: 100%;
-    margin: 0px;
+    height: 100%;
+    margin: 0px 0px 0px 0px;
     background-color: black;
 }
 </style>
