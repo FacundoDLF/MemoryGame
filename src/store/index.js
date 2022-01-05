@@ -267,10 +267,6 @@ const Store = new Vuex.Store({
       setPlayer(state, value) {
         return state.player = value
       },
-      resetGame(state) {
-        state.cardsInLevel = null;
-        state.reversedMatch = null;
-      },
     },
     getters,
   })

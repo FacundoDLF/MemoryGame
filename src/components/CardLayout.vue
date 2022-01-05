@@ -1,6 +1,6 @@
 <template>
   <div class="cardLayout">
-    <h1 v-if="winner" >CONGRATS!! YOU WIN !!</h1>
+    <p class="win-msg" v-if="gameOver" >YOU WIN !!</p>
     <div class="deck">
       <h2 v-if="!cardsInLevel.length">Please, choose the difficulty to start the game.</h2>
       <button
@@ -26,7 +26,7 @@
 
 <script>
 import Vue from "vue";
-import { mapState, mapGetters } from "vuex";
+import { mapState } from "vuex"; // { mapMutations }
 
 
 export default {
@@ -36,26 +36,41 @@ export default {
     return {
       reversedMatch: null,
       isGameStopped: false,
-      finishGame: [],
-      winner: false
+      foundCards: [],
+      gameOver: false
     };
   },
   computed: {
-    ...mapGetters([
-      'choseLevel',
-    ]),
     ...mapState([
       'cards',
       'cardsInLevel',
-      'srcReverseCard'
-    ])
+      'srcReverseCard',
+      'level',
+    ]),
   },
   methods: {
+    // ...mapMutations([
+    //   'resetGame'
+    // ]),
     winGame() {
-      if (this.cardsInLevel.length === this.finishGame.length) {
-        return this.winner = true
+      if (this.cardsInLevel.length === this.foundCards.length) {
+        return this.gameOver = true
+        // setTimeout(() => {
+        // this.gameOver = false;
+        // this.foundCards = null;
+        // }
+        // ,2000)
+        // this.cardsInLevel: {
+        //    get(){
+        //      return this.nameFromStore
+        //    },
+        //    set(newName){
+        //      return newName
+        //    } 
+        // }
+        // this.resetGame()
+        // Vue.set(this.cardsInLevel, this.cardsInLevel, null);
       }
-      console.log('finishGame: ', this.finishGame.length);
       console.log('cardsInLevel: ', this.cardsInLevel);
     },
     blockCouple(clickedCard, index) {
@@ -97,7 +112,7 @@ export default {
         if (clickedCard.src === this.reversedMatch.src) {
           this.blockCouple(clickedCard, indexOfCard);
           this.reversedMatch = null;
-          this.finishGame.length += 2;
+          this.foundCards.length += 2;
           this.winGame();
         } else {
           this.showAndHide(clickedCard, indexOfCard);
@@ -113,21 +128,33 @@ export default {
 <style scoped>
 .cardLayout {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   width: 100%;
   height: 100%;
 }
+
+.win-msg {
+  display: block;
+  align-self: center;
+  justify-content: center;
+  width: 40%;
+  font-size: 2.3rem;
+  color: rgb(24, 143, 0);
+  text-shadow: 0 0 5px rgb(0, 255, 13);
+}
+
 .deck {
-  display: flex;
+  display: block;
+  align-self: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 60%;
+  width: 90%;
+  height: 100%;
 }
 
 .card {
-  width: 140px;
-  height: 175px;
   margin: 2px;
   border-style: none;
   background-color: transparent;
@@ -135,8 +162,8 @@ export default {
 }
 
 .temp-card {
-  width: 140px;
-  height: 175px;
+  width: 90px;
+  height: 110px;
 }
 
 .card:hover {

@@ -12,8 +12,8 @@
 </div>
 </template>
 <script>
-import Vue from "vue";
-import { mapGetters, mapState } from "vuex";
+// import Vue from "vue";
+import { mapGetters, mapState } from "vuex"; // { mapMutations }
 
 export default {
   name: "asideNavBar",
@@ -21,26 +21,21 @@ export default {
   computed: {
     ...mapGetters([
       'choseLevel',
+      // 'resetGame',
     ]),
     ...mapState([
       'cardsInLevel',
       'reversedMatch',
     ])
   },
-  methods: {
-    resetGame() {
-      Vue.set(this.cardsInLevel, {...this.cardsInLevel, cardsInLevel: null});
-    }
-  },
 }
 </script>
 
 <style scoped>
 
-.leftNavBar {
-  position: sticky;
+/* .leftNavBar {
   
-}
+} */
 
 .logo {
   display: flex;
