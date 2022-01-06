@@ -1,6 +1,14 @@
 <template>
 <div class="leftNavBar">
+
   <div class="nav-lvl">
+    <div class="chronometer">
+    <div class="time">
+      <p class="minutes">00:</p>
+      <p class="seconds">00:</p>
+      <p class="miliseconds">000</p>
+    </div>
+  </div>
     <img class="logo" src="https://i.pinimg.com/originals/97/fd/05/97fd05e0cc5fc8f8204012448bc703ae.jpg" alt="Monkey Memory Game"> 
     <p class="label-lvl">Level:</p>
     <button class="btn-lvl" @click="choseLevel(8)">x4</button>
@@ -36,6 +44,38 @@ export default {
 /* .leftNavBar {
   
 } */
+
+.chronometer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 5%;
+  color: red;
+  text-shadow: 0px 0px 5px rgb(255, 34, 34);
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.time {
+  display: flex;
+  width: 60%;
+}
+
+.minutes, .seconds {
+  width: 33%;
+  margin: 0px;
+  font-size: 35px;
+}
+
+.miliseconds {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 33%;
+  margin: 0px;
+  font-size: 25px;
+}
 
 .logo {
   display: flex;

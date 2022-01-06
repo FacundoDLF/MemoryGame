@@ -2,7 +2,7 @@
     <div class="header">
         <div class="main">
         <div class="nav">
-            <router-link class="nav-tab" to="/">Home</router-link> |
+            <router-link class="nav-tab" to="/">Home</router-link>|
             <router-link class="nav-tab" to="/Login">Login</router-link>
         </div>
         </div>
@@ -24,7 +24,14 @@ export default {
     display: flex;
     justify-content: right ;
     padding: 3px;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 18);
+}
+
+.nav-tab{
+    display: flex;
+    justify-content: space-around;
+    width: 4%
 }
 a {
     color: white;

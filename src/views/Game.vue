@@ -5,8 +5,8 @@
     </div>
     <div class="container">
       <div class="nav">
-        <router-link class="nav-tab" to="/Game">Game</router-link> |
-        <router-link class="nav-tab" to="/Profile">Profile</router-link> | 
+        <router-link class="nav-tab" to="/Game">Game</router-link>|
+        <router-link class="nav-tab" to="/Profile">Profile </router-link>|
         <router-link class="nav-tab" to="/Scores">Scores</router-link>
       </div>
       <div>
@@ -37,8 +37,14 @@ export default {
 
 .nav {
     display: flex;
-    justify-content: center ;
+    justify-content: space-around;
+    align-self: center;
+    width: 20%;
     padding: 10px;
+}
+
+.nav-tab {
+  width: 100%;
 }
 
 a {

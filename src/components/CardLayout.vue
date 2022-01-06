@@ -93,7 +93,7 @@ export default {
         this.isGameStopped = false;
         this.reversedMatch = null;
       }
-      ,1000);
+      ,500);
     },
     showCard(clickedCard) {
       const indexOfCard = this.cardsInLevel.findIndex(
